@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebApp - Meeting Room Occupancy</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css"/>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card mt-3 p-3">
+                    <form>
+                        <label for="sensorName">Choose a sensor</label>
+                        <select class="form-select" id="sensorName">
+                        </select>
+                        <div class="text-center">
+                            <button class="btn btn-primary mt-5" id="getOccupancy">Get Occupancy</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-8 mx-auto">
+                <div id="occupancyDiv" class="alert alert-success d-none">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <form id="addRecord">
+                <label for="name">Sensor Name</label>
+                <input id="name" name="name" class="form-control"/>
+                <label for="ts">Time</label>
+                <input type="datetime-local" class="form-control" name="ts" id="ts"/>
+                <label for="in">People In</label>
+                <input name="in" id="in" class="form-control" type="number"/>
+                <label for="out">People Out</label>
+                <input name="out" id="out" class="form-control" type="number"/>
+                <button class="btn btn-primary" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="public/js/bootstrap.bundle.min.js"></script>
+    <script src="src/clients/http.js"></script>
+    <script src="src/components/Occupancy.js"></script>
+    <script src="src/services/peopleCounter.js"></script>
+    <script src="src/app.js"></script>
+</body>
+</html>
